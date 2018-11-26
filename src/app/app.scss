@@ -14,3 +14,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.button {
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: #0c9abe;
+    text-transform: none;
+    min-height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    color: #ffffff;
+
+    &.activated {
+        background-color: #1cAabe;
+    }
+}
+
+.list {
+    margin-bottom: 0px;
+}
