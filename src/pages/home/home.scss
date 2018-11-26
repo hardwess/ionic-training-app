@@ -7,6 +7,7 @@ page-home {
         background-color: #0c9abe;
         min-height: 100px;
         margin-bottom: 45px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
 
         .name-profile {
             font-size: 18px;
@@ -26,6 +27,7 @@ page-home {
             border-radius: 50px;
             left: 25px;
             border: solid 2px #0c9abe;
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
 
             display: flex;
             justify-content: center;
