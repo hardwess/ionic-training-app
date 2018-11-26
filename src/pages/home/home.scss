@@ -1,3 +1,53 @@
 page-home {
+    .content {
+        background-color: #fbfbfb;
+    }
 
+    .img-header {
+        background-color: #0c9abe;
+        min-height: 100px;
+        margin-bottom: 45px;
+
+        .name-profile {
+            font-size: 18px;
+            position: absolute;
+            top: 70px;
+            font-weight: bold;
+            left: 115px;
+            color: white;
+        }
+
+        .img-profile {
+            background-color: white;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50px;
+            border-radius: 50px;
+            left: 25px;
+            border: solid 2px #0c9abe;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                border-radius: 50%;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .post-card {
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+
+        .card-content {
+            p {
+                font-size: 12px;
+                font-style: italic;
+            }
+
+        }
+    }
 }
