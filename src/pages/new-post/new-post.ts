@@ -29,7 +29,7 @@ export class NewPostPage {
 
         let promise;
         if( this.isCamera ) {
-            promise = this.cameraSrv.getFromCamera()
+            promise = this.cameraSrv.getFromCamera(100, 1000, 1000);
         } else {
             promise = this.cameraSrv.getFromAlbum();
         }

@@ -7,6 +7,9 @@
             <img *ngIf='profile_pic' [src]="profile_pic" />
         </div>
     </div>
+    <div class="logout">
+        <ion-icon name="md-exit" (click)="doLogout()"></ion-icon>
+    </div>
 </ion-header>
 <ion-content>
 

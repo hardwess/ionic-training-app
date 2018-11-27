@@ -66,5 +66,9 @@ export class SessionService {
         }
     }
 
+    public async clearSession(): Promise<any> {
+        return await this.storage.clear();
+    }
+
 
 }

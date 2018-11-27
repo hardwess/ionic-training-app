@@ -91,6 +91,6 @@
         <variable name="OKHTTP_VERSION" value="3.+" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Para incluir sua localização nas postagens" />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
 </widget>

@@ -23,6 +23,10 @@ export class LoginService {
         )
     }
 
+    public async doLogout(): Promise<any> {
+        this.sessionService.clearSession();
+    }
+
     public changeProfilePic(imageB64: string){
         const body = {
             photo: imageB64

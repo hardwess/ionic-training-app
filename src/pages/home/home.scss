@@ -12,9 +12,20 @@ page-home {
             padding-top: 22px;
         }
     }
-
+    .logout {
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        font-size: 20px;
+        color:white;
+    }
     .img-header {
         background-color: #0c9abe;
+        background-image: url('../../assets/imgs/background.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
         min-height: 100px;
         //margin-bottom: 45px;
         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
@@ -49,6 +60,8 @@ page-home {
                 max-height: 100%;
             }
         }
+
+
     }
 
     .post-card {

@@ -6,6 +6,7 @@ import { NavController, AlertController, Toast, ToastController, LoadingControll
 import { PostsService, Post } from '../../providers/posts.service';
 import { NewPostPage } from '../new-post/new-post';
 import { LaunchNavigatorOptions, LaunchNavigator } from '@ionic-native/launch-navigator';
+import { LoginPage } from '../login/login';
 
 @Component({
     selector: 'page-home',
@@ -157,5 +158,11 @@ export class HomePage {
             this.page++;
             this.getPosts();
         }
+    }
+
+    doLogout() {
+        this.loginService.doLogout().then( () => {
+            this.navCtrl.setRoot(LoginPage);
+        });
     }
 }
