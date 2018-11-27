@@ -21,10 +21,12 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.17.0",
+    "@ionic-native/geolocation": "^4.17.0",
     "@ionic-native/native-storage": "^4.17.0",
     "@ionic-native/splash-screen": "~4.17.0",
     "@ionic-native/status-bar": "~4.17.0",
     "@ionic/storage": "2.2.0",
+    "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-nativestorage": "^2.3.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -39,7 +41,9 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-nativestorage": {}
+      "cordova-plugin-nativestorage": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Para incluir sua localização nas postagens"
+      }
     }
   }
 }

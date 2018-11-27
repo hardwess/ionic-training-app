@@ -15,3 +15,22 @@ export class PostsService {
         return this._http.get(url);
     }
 }
+
+export class Post {
+    private subtitle : string = null;
+    public location : string = null;
+    public photo : string = null;
+
+    constructor(private pSubtitle:string, private pLocation:string) {
+        this.subtitle = pSubtitle;
+        this.location = pLocation;
+    }
+
+    getJSON() {
+        return {
+            subtitle : this.subtitle,
+            location : this.location,
+            photo : this.photo
+        }
+    }
+}

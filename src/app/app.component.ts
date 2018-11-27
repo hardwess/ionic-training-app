@@ -23,7 +23,7 @@ export class MyApp {
         try {
             await this.platform.ready()
             await this.sessionService.loadSession();
-            this.rootPage = HomePage;
+            this.rootPage = NewPostPage;
         } catch (error) {
             this.rootPage = LoginPage;
             console.log(error);
