@@ -30,7 +30,7 @@ export class SessionService {
         }
         if (photo_url) {
             await this.storage.set('profile_pic', photo_url);
-            this.profile_pic = photo_url;
+            this.profile_pic = 'http://thfservices.totvs.com.br:8085' + photo_url;;
         }
         if (name) {
             await this.storage.set('name', name);
@@ -51,7 +51,7 @@ export class SessionService {
     public async updateUser(name: string, photo_url?: string) {
         if (photo_url) {
             await this.storage.set('profile_pic', photo_url);
-            this.profile_pic = photo_url;
+            this.profile_pic = 'http://thfservices.totvs.com.br:8085' + photo_url;
         }
         if (name) {
             await this.storage.set('name', name);
@@ -59,7 +59,7 @@ export class SessionService {
         }
         return {
             name: name,
-            profile_pic: photo_url
+            profile_pic: this.profile_pic
         }
     }
 
