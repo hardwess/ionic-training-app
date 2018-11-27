@@ -16,6 +16,7 @@ export class LocationService {
 
             return `${resp.coords.latitude},${resp.coords.longitude}`
         } catch( e ) {
+            console.log(e);
             return null;
         }
     }

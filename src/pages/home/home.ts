@@ -129,6 +129,7 @@ export class HomePage {
     doRefresh(ev){
         this.page = 1;
         this.getPosts();
+        ev.complete();
     }
 
     private navigate() {

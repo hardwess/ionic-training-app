@@ -4,9 +4,9 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <img class="img-new-post" [src]="photo" />
+    <img class="img-new-post" [src]="photo" *ngIf="photo"/>
 
-    <ion-list>
+    <ion-list *ngIf="photo">
         <ion-item>
             <ion-label stacked>Legenda</ion-label>
             <ion-input type="text" [(ngModel)]="subtitle"></ion-input>
