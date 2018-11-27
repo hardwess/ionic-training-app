@@ -14,23 +14,32 @@ export class PostsService {
         let url = `/posts?page=${page}&pageSize=4`;
         return this._http.get(url);
     }
+
+
+    public savePost(post : Post): Promise<any> {
+        let url = `/posts`;
+        return this._http.post(url, post.getJSON()).toPromise();
+    }
 }
 
 export class Post {
     private subtitle : string = null;
     public location : string = null;
-    public photo : string = null;
+    public photo_url : string = null;
+    public user: any = null;
 
-    constructor(private pSubtitle:string, private pLocation:string) {
+    constructor(private pSubtitle:string, private pLocation:string, private pPhoto:string) {
         this.subtitle = pSubtitle;
         this.location = pLocation;
+        this.photo_url = pPhoto;
     }
 
     getJSON() {
         return {
             subtitle : this.subtitle,
             location : this.location,
-            photo : this.photo
+            photo : this.photo_url
         }
     }
+
 }

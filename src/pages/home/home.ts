@@ -3,7 +3,7 @@ import { CameraService } from './../../providers/camera.service';
 import { SessionService } from './../../providers/session.service';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, Toast, ToastController, LoadingController, Content } from 'ionic-angular';
-import { PostsService } from '../../providers/posts.service';
+import { PostsService, Post } from '../../providers/posts.service';
 import { NewPostPage } from '../new-post/new-post';
 import { LaunchNavigatorOptions, LaunchNavigator } from '@ionic-native/launch-navigator';
 
@@ -18,6 +18,8 @@ export class HomePage {
 
     private page = 1;
 
+    private hasNext: boolean = false;
+    private posts: Post[] = [];
 
     constructor(
         public navCtrl: NavController,
@@ -29,7 +31,7 @@ export class HomePage {
         private loginService: LoginService,
         private launchNavigator: LaunchNavigator,
         private cameraService: CameraService) {
-        this.getPosts(this.page)
+        this.getPosts();
     }
 
     ionViewDidLoad() {
@@ -37,12 +39,29 @@ export class HomePage {
         this.profile_pic = this.sessionService.profile_pic;
     }
 
-    getPosts(page) {
+    getPosts() {
+        if( this.page == 1 ) {
+            this.posts = [];
+        }
         this.postsService.getPosts(this.page).subscribe(
             res => {
-                console.log(res);
-            }, error => {
+                this.hasNext = res.hasNext;
 
+                for( let i = 0; i < res.posts.length; i++ ) {
+                    let post = res.posts[i];
+                    post.photo_url = "http://thfservices.totvs.com.br:8085" + post.photo_url;
+                    if( post.user.photo_url )
+                        post.user.photo_url = "http://thfservices.totvs.com.br:8085" + post.user.photo_url;
+
+                    this.posts.unshift(post);
+                }
+            }, error => {
+                let toast = this.toastCtrl.create({
+                    message: 'Erro ao carregar posts',
+                    duration: 3000,
+                    position: 'top'
+                });
+                toast.present();
             }
         );
     }
@@ -108,10 +127,8 @@ export class HomePage {
     }
 
     doRefresh(ev){
-        console.log(ev);
-        setTimeout(() => {
-            ev.complete();
-        }, 3000);
+        this.page = 1;
+        this.getPosts();
     }
 
     private navigate() {
@@ -128,5 +145,16 @@ export class HomePage {
         this.content.scrollToTop();
     }
 
+    newPost(isCamera) {
+        this.navCtrl.push(NewPostPage, { isCamera: isCamera});
+    }
 
+    doInfinite(infiniteScroll) {
+        console.log('infinite');
+        infiniteScroll.complete();
+        if( this.hasNext ) {
+            this.page++;
+            this.getPosts();
+        }
+    }
 }

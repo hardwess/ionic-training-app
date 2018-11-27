@@ -13,7 +13,6 @@ export class CameraService {
         allowEdit: true
     }
 
-
     constructor(private camera: Camera) {
 
     }

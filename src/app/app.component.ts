@@ -27,7 +27,7 @@ export class MyApp {
             this.statusBar.backgroundColorByHexString('#146b81');
             this.splashScreen.hide();
             await this.sessionService.loadSession();
-            this.rootPage = NewPostPage;
+            this.rootPage = HomePage;
         } catch (error) {
             this.rootPage = LoginPage;
             console.log(error);
