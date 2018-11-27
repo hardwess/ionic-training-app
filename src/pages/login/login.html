@@ -6,16 +6,16 @@
         <ion-list>
             <ion-item>
                 <ion-label stacked class="form-label">Login</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input [(ngModel)]='user' type="text"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label stacked class="form-label">Senha</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-input [(ngModel)]='password' type="password"></ion-input>
             </ion-item>
         </ion-list>
     </div>
     <div class="footer">
-        <button ion-button full>Entrar</button>
+        <button (click)='doLogin()' ion-button full>Entrar</button>
     </div>
 
 </ion-content>
