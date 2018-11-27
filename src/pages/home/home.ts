@@ -32,7 +32,6 @@ export class HomePage {
         private loginService: LoginService,
         private launchNavigator: LaunchNavigator,
         private cameraService: CameraService) {
-        this.getPosts();
     }
 
     ionViewDidLoad() {
@@ -40,21 +39,25 @@ export class HomePage {
         this.profile_pic = this.sessionService.profile_pic;
     }
 
+    ionViewDidEnter() {
+        this.page = 1;
+        this.getPosts();
+    }
+
     getPosts() {
-        if( this.page == 1 ) {
+        if (this.page == 1) {
             this.posts = [];
         }
         this.postsService.getPosts(this.page).subscribe(
             res => {
                 this.hasNext = res.hasNext;
-
-                for( let i = 0; i < res.posts.length; i++ ) {
+                for (let i = 0; i < res.posts.length; i++) {
                     let post = res.posts[i];
                     post.photo_url = "http://thfservices.totvs.com.br:8085" + post.photo_url;
-                    if( post.user.photo_url )
+                    if (post.user.photo_url)
                         post.user.photo_url = "http://thfservices.totvs.com.br:8085" + post.user.photo_url;
 
-                    this.posts.unshift(post);
+                    this.posts.push(post);
                 }
             }, error => {
                 let toast = this.toastCtrl.create({
@@ -127,34 +130,34 @@ export class HomePage {
 
     }
 
-    doRefresh(ev){
+    doRefresh(ev) {
         this.page = 1;
         this.getPosts();
         ev.complete();
     }
 
-    private navigate() {
+    private navigate(coord) {
         let options: LaunchNavigatorOptions = {};
-        this.launchNavigator.navigate('Diadema, SP', options)
+        this.launchNavigator.navigate(coord, options)
             .then(
                 success => console.log('Launched navigator'),
                 error => console.log('Error launching navigator', error)
             );
     }
 
-    scrollToTop(fab){
+    scrollToTop(fab) {
         fab.close();
         this.content.scrollToTop();
     }
 
     newPost(isCamera) {
-        this.navCtrl.push(NewPostPage, { isCamera: isCamera});
+        this.navCtrl.push(NewPostPage, { isCamera: isCamera });
     }
 
     doInfinite(infiniteScroll) {
         console.log('infinite');
         infiniteScroll.complete();
-        if( this.hasNext ) {
+        if (this.hasNext) {
             this.page++;
             this.getPosts();
         }
