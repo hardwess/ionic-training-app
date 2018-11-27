@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { NewPostPage } from '../pages/new-post/new-post';
 
 @Component({
     templateUrl: 'app.html'
@@ -14,22 +13,24 @@ import { NewPostPage } from '../pages/new-post/new-post';
 export class MyApp {
     rootPage: any;
 
-    constructor(private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private sessionService: SessionService) {
+    constructor(
+        private platform: Platform,
+        private statusBar: StatusBar,
+        private splashScreen: SplashScreen,
+        private sessionService: SessionService) {
         this.init();
     }
-
 
     async init() {
         try {
             await this.platform.ready()
+            this.statusBar.backgroundColorByHexString('#146b81');
+            this.splashScreen.hide();
             await this.sessionService.loadSession();
             this.rootPage = NewPostPage;
         } catch (error) {
             this.rootPage = LoginPage;
             console.log(error);
         }
-        this.statusBar.styleDefault();
-        this.splashScreen.hide();
-
     }
 }

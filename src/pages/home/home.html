@@ -1,24 +1,94 @@
-<ion-content>
+<ion-header [scrollingHeader]='content'>
     <div class="img-header">
-        <span class="name-profile">Claudio Koji</span>
+        <span class="name-profile">{{userName}}</span>
 
-        <div class="img-profile">
-            <img src="./assets/imgs/no_photo.png" />
+        <div class="img-profile" (click)='askForChangeProfilePic()'>
+            <img *ngIf='!profile_pic' src="./assets/imgs/no_photo.png" />
+            <img *ngIf='profile_pic' [src]="profile_pic" />
         </div>
     </div>
+</ion-header>
+<ion-content>
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div class="content">
-        <ion-card class="post-card">
 
+        <ion-card class="post-card">
             <ion-item>
                 <ion-avatar item-start>
                     <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
                 </ion-avatar>
                 <h2>Claudio Koji</h2>
-                <ion-icon name="ios-navigate-outline" item-end></ion-icon>
+                <ion-icon (click)='navigate()' name="ios-navigate-outline" item-end></ion-icon>
             </ion-item>
 
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png" />
+            <ion-card-content>
+                <p>
+                    Olá, hoje é meu aniversário!! #birthday #aniversario #wisdom #totvs #somostotvers #seguemeupal
+                </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card class="post-card">
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                </ion-avatar>
+                <h2>Claudio Koji</h2>
+                <ion-icon (click)='navigate()' name="ios-navigate-outline" item-end></ion-icon>
+            </ion-item>
+
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png" />
+            <ion-card-content>
+                <p>
+                    Olá, hoje é meu aniversário!! #birthday #aniversario #wisdom #totvs #somostotvers #seguemeupal
+                </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card class="post-card">
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                </ion-avatar>
+                <h2>Claudio Koji</h2>
+                <ion-icon (click)='navigate()' name="ios-navigate-outline" item-end></ion-icon>
+            </ion-item>
+
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png" />
+            <ion-card-content>
+                <p>
+                    Olá, hoje é meu aniversário!! #birthday #aniversario #wisdom #totvs #somostotvers #seguemeupal
+                </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card class="post-card">
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                </ion-avatar>
+                <h2>Claudio Koji</h2>
+                <ion-icon (click)='navigate()' name="ios-navigate-outline" item-end></ion-icon>
+            </ion-item>
+
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png" />
+            <ion-card-content>
+                <p>
+                    Olá, hoje é meu aniversário!! #birthday #aniversario #wisdom #totvs #somostotvers #seguemeupal
+                </p>
+            </ion-card-content>
+        </ion-card>
+        <ion-card class="post-card">
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                </ion-avatar>
+                <h2>Claudio Koji</h2>
+                <ion-icon (click)='navigate()' name="ios-navigate-outline" item-end></ion-icon>
+            </ion-item>
+
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png" />
             <ion-card-content>
                 <p>
                     Olá, hoje é meu aniversário!! #birthday #aniversario #wisdom #totvs #somostotvers #seguemeupal
@@ -27,12 +97,20 @@
         </ion-card>
     </div>
 
-    <ion-fab bottom right>
-        <button ion-fab><ion-icon name="md-add"></ion-icon></button>
+    <ion-fab bottom right #fab>
+        <button ion-fab>
+            <ion-icon name="md-add"></ion-icon>
+        </button>
         <ion-fab-list side="top">
-            <button ion-fab color="sectotvs"><ion-icon name="md-camera"></ion-icon></button>
-            <button ion-fab color="sectotvs"><ion-icon name="md-image"></ion-icon></button>
-            <button ion-fab color="sectotvs"><ion-icon name="md-arrow-round-up"></ion-icon></button>
+            <button ion-fab color="sectotvs">
+                <ion-icon name="md-camera"></ion-icon>
+            </button>
+            <button ion-fab color="sectotvs">
+                <ion-icon name="md-image"></ion-icon>
+            </button>
+            <button (click)='scrollToTop(fab)' ion-fab color="sectotvs">
+                <ion-icon name="md-arrow-round-up"></ion-icon>
+            </button>
         </ion-fab-list>
     </ion-fab>
 

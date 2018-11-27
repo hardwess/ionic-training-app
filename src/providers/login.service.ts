@@ -19,8 +19,18 @@ export class LoginService {
         }
         let url = '/authenticate';
         return this._http.post(url, body).pipe(
+            flatMap(res => this.sessionService.saveUserToStorage(res['token'], res['username'], res['name'], res['userId'], res['photo_url']))
+        )
+    }
+
+    public changeProfilePic(imageB64: string){
+        const body = {
+            photo: imageB64
+        }
+        let url = '/users/photo';
+        return this._http.put(url, body).pipe(
             flatMap(res => {
-                return this.sessionService.saveUserToStorage(res['token'], res['username'], res['name'], res['userId']);
+                return this.sessionService.updateUser(res['name'], res['photo_url']);
             })
         )
     }

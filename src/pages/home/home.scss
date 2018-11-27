@@ -1,12 +1,22 @@
 page-home {
+
     .content {
         background-color: #fbfbfb;
+
+        &.has-refresher > .scroll-content {
+            border-bottom: none;
+        }
+
+        .scroll-content {
+            margin-top: 64px;
+            padding-top: 22px;
+        }
     }
 
     .img-header {
         background-color: #0c9abe;
         min-height: 100px;
-        margin-bottom: 45px;
+        //margin-bottom: 45px;
         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
 
         .name-profile {
@@ -28,7 +38,7 @@ page-home {
             left: 25px;
             border: solid 2px #0c9abe;
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
-
+            z-index: 99999;
             display: flex;
             justify-content: center;
             align-items: center;

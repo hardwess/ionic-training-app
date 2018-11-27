@@ -1,5 +1,4 @@
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpService } from './../providers/http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -13,10 +12,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../pages/home/home';
 import { NewPostPage } from '../pages/new-post/new-post';
 import { LoginPage } from '../pages/login/login';
-import { PostsService } from '../providers/posts.service';
 
 import { PROVIDERS } from './../providers/providers';
-
+import {ScrollingHeaderModule} from 'ionic-scrolling-header';
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +26,8 @@ import { PROVIDERS } from './../providers/providers';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ScrollingHeaderModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
