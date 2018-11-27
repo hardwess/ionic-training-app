@@ -15,6 +15,9 @@ export class SessionService {
         this.token = await this.storage.get('token');
         this.name = await this.storage.get('name');
         this.profile_pic = await this.storage.get('profile_pic');
+        if(this.profile_pic){
+            this.profile_pic = 'http://thfservices.totvs.com.br:8085' + this.profile_pic;
+        }
         // const userId = await this.storage.get('userId');
         if (this.token && this.name) {
             return true;
