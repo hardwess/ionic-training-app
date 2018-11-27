@@ -4,15 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-
-// debug:
 import { LoginPage } from '../pages/login/login';
+import { NewPostPage } from '../pages/new-post/new-post';
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = HomePage;
+    rootPage: any = LoginPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
         platform.ready().then(() => {
