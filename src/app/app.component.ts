@@ -11,7 +11,7 @@ import { NewPostPage } from '../pages/new-post/new-post';
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = LoginPage;
+    rootPage: any = NewPostPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
         platform.ready().then(() => {
