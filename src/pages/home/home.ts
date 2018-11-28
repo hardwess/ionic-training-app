@@ -41,7 +41,7 @@ export class HomePage {
 
     ionViewDidEnter() {
         this.page = 1;
-        this.getPosts();
+        this.getPosts(true);
     }
 
     getPosts(showLoading?: boolean) {
@@ -141,7 +141,7 @@ export class HomePage {
 
     doRefresh(ev) {
         this.page = 1;
-        this.getPosts();
+        this.getPosts(true);
         ev.complete();
     }
 
