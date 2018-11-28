@@ -63,9 +63,10 @@ export class HomePage {
                         post.user.photo_url = "http://thfservices.totvs.com.br:8085" + post.user.photo_url;
 
                     this.posts.push(post);
-                    if(showLoading){
-                        loading.dismiss();
-                    }
+
+                }
+                if(showLoading){
+                    loading.dismiss();
                 }
             }, error => {
                 loading.dismiss();
