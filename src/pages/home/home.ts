@@ -44,9 +44,14 @@ export class HomePage {
         this.getPosts();
     }
 
-    getPosts() {
+    getPosts(showLoading?: boolean) {
         if (this.page == 1) {
             this.posts = [];
+        }
+        let loading = this.loadingCtrl.create({
+        });
+        if(showLoading){
+            loading.present();
         }
         this.postsService.getPosts(this.page).subscribe(
             res => {
@@ -58,8 +63,12 @@ export class HomePage {
                         post.user.photo_url = "http://thfservices.totvs.com.br:8085" + post.user.photo_url;
 
                     this.posts.push(post);
+                    if(showLoading){
+                        loading.dismiss();
+                    }
                 }
             }, error => {
+                loading.dismiss();
                 let toast = this.toastCtrl.create({
                     message: 'Erro ao carregar posts',
                     duration: 3000,
